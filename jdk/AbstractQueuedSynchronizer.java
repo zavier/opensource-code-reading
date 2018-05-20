@@ -608,6 +608,13 @@ public abstract class AbstractQueuedSynchronizer {
     }
 
 
+    /**
+     * SIGNAL 当前节点的下一个节点处于阻塞状态，当它释放时需要唤醒下一个节点
+     * CANCELLED 超时或被打断的节点状态
+     * CONDITION 表示节点处于条件队列
+     * PROPAGETE 释放时应该扩散到其他节点
+     * 0 表示正常同步代码状态
+     */
     static final class Node {
         static final Node SHARED = new Node();
         static final Node EXCLUSIVE = null;
